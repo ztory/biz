@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class used to set or get business-rule-interfaces.
- * Created by jonruna on 23/09/16.
+ * Biz is used to set or get types related to business-rules.
+ * Created by jonruna on 2017-02-01.
  */
 public class Biz {
 
@@ -19,17 +19,6 @@ public class Biz {
 
     public static <T> T get(Class<T> clazz) {
         synchronized (sInstanceMap) {
-//            Object returnObject = sInstanceMap.get(clazz);
-//            if (returnObject == null) {
-//                return null;
-//            }
-//            else if (!clazz.isAssignableFrom(returnObject.getClass())) {
-//                return null;
-//            }
-//            return (T) returnObject;
-//            return castOrNull(clazz, sInstanceMap.get(clazz));
-
-            // No need to check cast, because set() method only takes class of its own type
             return (T) sInstanceMap.get(clazz);
         }
     }
@@ -43,17 +32,5 @@ public class Biz {
         }
         return (T) object;
     }
-
-    /*
-    private static BizLevelHandler sLevelHandler;
-
-    public static BizLevelHandler getLevelHandler() {
-        return sLevelHandler;
-    }
-
-    public static void setLevelHandler(BizLevelHandler theLevelHandler) {
-        sLevelHandler = theLevelHandler;
-    }
-    */
 
 }
